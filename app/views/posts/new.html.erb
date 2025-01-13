@@ -1,0 +1,15 @@
+<h1>新しい投稿</h1>
+
+<%= form_with mdoel: @posts, do |form| %>
+    <div class="field">
+        <%= form.label :title %><%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+        <%= form.label :content %><%= form.text_area :content %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit "投稿" %>
+    </div>
+<% end %>

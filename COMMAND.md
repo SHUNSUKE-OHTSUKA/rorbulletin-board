@@ -31,8 +31,15 @@ docker compose exec web bundle exec rake db:create
 
 ## rails操作
 
-Postsコントローラの作成
+controllerの作成
 
 ```
 docker compose exec web rails generate controller Posts
+```
+
+modelの作成
+
+```
+docker compose exec web rails generate model Posts title:string context:string
+docker compose exec web rails db:migrate
 ```
