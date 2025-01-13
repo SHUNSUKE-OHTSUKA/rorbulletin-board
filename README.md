@@ -21,6 +21,7 @@ Ruby on Railsを用いて掲示板のCRUD機能を開発します
 docker compose up -d
 
 # 初回起動時のみ
+docker compose build
 docker compose exec web bundle exec rake db:create
 ```
 
