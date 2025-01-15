@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   
   #localhost:3000/posts
-  resources :posts, only: [:index, :show, :new, :create]
+  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 end

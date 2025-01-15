@@ -1,1 +1,23 @@
-<h1>Hello World!</h1>
+<h1>Ruby on Rails 掲示板</h1>
+
+<div class="button-container">
+    <%= link_to "新しい投稿", new_post_path, class: "link-button" %>
+</div>
+
+<% if @posts.present? %>
+    <ul>
+        <% @posts.each do |post| %>
+        <li>
+            <h2><%= post.title %></h2>
+            <p><%= post.content %></p>
+            <span><%= post.created_at %></span>
+            <div class="button-container">
+                <%= link_to "編集", edit_post_path(post), class: "edit-button" %>
+                <%= button_to "削除", post, method: :delete,class: "delete-button" %>
+            </div>
+        </li>
+        <% end %>
+    </ul>
+<% else %>
+    <p>投稿がありません</p>
+<% end %>

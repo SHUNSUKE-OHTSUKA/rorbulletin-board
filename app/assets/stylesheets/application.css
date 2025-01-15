@@ -1,10 +1,188 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+/* 解説用にコメントを追加 
+全体のスタイル: ボディには背景色とフォントファミリーを指定し、ページ全体を整えています。
+フォーム（.form-container）: 最大幅を600pxにし、中央揃え、内部にパディングを加えてフォームを綺麗に配置。
+入力欄（.form-input）: 入力欄（input、textarea）に適切なパディングと枠線を指定。フォーカス時に色が変わるエフェクトも追加。
+ボタン（.button-container）: ボタンのデザイン、ホバーエフェクト、無効時のスタイルも含まれています。
+投稿リスト（ul、li）: 投稿のリストを整えて、投稿の各項目に影をつけて視覚的に分けています。
+編集・削除ボタン: 編集と削除のボタンに色をつけ、ホバー時に色が変わるようにしています。
+リンクボタン（.link-button）: 新しい投稿のリンクボタンには特定のスタイル（色やホバーエフェクト）を追加。
+*/
+
+/* 全体のスタイル */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダーのスタイル */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 40px;
+}
+
+/* form-containerに対するスタイル */
+.form-container {
+    max-width: 600px; /* 最大幅 */
+    margin: 20px auto; /* 中央揃え */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影 */
+}
+
+/* 各入力欄 */
+.form-input {
+    margin-bottom: 20px; /* 下の余白 */
+}
+
+.form-input label {
+    display: block; /* ラベルをブロック要素にして、入力欄の上に表示 */
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #555;
+}
+
+.form-input input,
+.form-input textarea {
+    width: 80%; /* 入力欄を横幅いっぱいに */
+    padding: 12px; /* 内側の余白 */
+    border: 1px solid #ccc; /* 薄い灰色の枠線 */
+    border-radius: 4px; /* 角を丸くする */
+    font-size: 16px;
+    color: #333;
+}
+
+.form-input input:focus,
+.form-input textarea:focus {
+    border-color: #4A90E2; /* フォーカス時の枠線色 */
+    outline: none; /* フォーカス時のアウトラインを削除 */
+}
+
+/* ボタンコンテナ */
+.button-container {
+    display: flex; /* 横並びにする */
+    justify-content: center; /* 中央揃え */
+    gap: 10px; /* ボタン間の間隔を設定 */
+    margin-top: 10px;
+}
+
+/* 投稿ボタン */
+.button-container input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4A90E2;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container input[type="submit"]:hover {
+    background-color: #357ABD; /* ホバー時の背景色 */
+}
+
+.button-container input[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 投稿リスト */
+ul {
+    list-style-type: none; /* 項目の前の点を消す */
+    padding: 0; /* 左右の余白を削除 */
+    margin: 0 auto; /* 左右の余白を削除して中央揃え */
+    width: 90%; /* 幅を80%に設定 */
+}
+
+li {
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+span {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* 編集・削除ボタン */
+.button-container a,
+.button-container button {
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.edit-button {
+    background-color: #4A90E2;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.edit-button:hover {
+    background-color: #357ABD;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* リンクボタン */
+.link-button {
+    display: inline-block;
+    background-color: #27ae60;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.link-button:hover {
+    background-color: #2ecc71;
+}
+
+/* フラッシュメッセージ */
+.flash {
+    color: $white; /* $white は SCSS 変数 */
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+  /* notice のみに適用されるスタイル */
+.flash.notice {
+    background-color: lightblue;
+}
+
+  /* alert のみに適用されるスタイル */
+.flash.alert {
+    background-color: orangered;
+}

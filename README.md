@@ -31,4 +31,4 @@ docker compose exec web rails db:migrate
 webブラウザで以下のURLを開く  
 http://localhost:3000/
 
-※アプリケーションのファイル更新時に即時反映(ActiveSupport::FileUpdateChecker)するように設定してるので、デバッグの都度raile再起動は不要
+※ファイル更新時にアプリケーションへ即時反映(ActiveSupport::FileUpdateChecker)するように設定してるので、デバッグの都度raile再起動は不要
