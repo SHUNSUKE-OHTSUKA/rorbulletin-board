@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  
-  #localhost:3000/posts
-  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
+  # localhost:3000/posts
+  resources :posts, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
 end
