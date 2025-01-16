@@ -9,7 +9,7 @@ services:
       MYSQL_DATABASE: demo
     volumes:
       - ./mysql_data:/var/lib/mysql
-      - .my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
