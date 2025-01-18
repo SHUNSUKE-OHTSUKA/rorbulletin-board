@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to @user, notice: "登録が完了しました。"
     else
       Rails.logger.info @user.errors.full_messages
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

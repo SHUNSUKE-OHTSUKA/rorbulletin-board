@@ -1,8 +1,9 @@
 <% provide(:title, 'ユーザー登録') %>
 <h1>ユーザー登録</h1>
 
+<%= render 'shared/error_messages', object: @user %>
+
 <%= form_with model: @user, local: true, class: "form-container" do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
     <div class="form-input">
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>

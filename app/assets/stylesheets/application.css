@@ -1,3 +1,6 @@
+@import "flash";
+@import "errors";
+
 /* 解説用にコメントを追加 
 全体のスタイル: ボディには背景色とフォントファミリーを指定し、ページ全体を整えています。
 フォーム（.form-container）: 最大幅を600pxにし、中央揃え、内部にパディングを加えてフォームを綺麗に配置。
@@ -168,24 +171,6 @@ span {
     background-color: #2ecc71;
 }
 
-/* フラッシュメッセージ */
-.flash {
-    color: $white; /* $white は SCSS 変数 */
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-}
-
-  /* notice のみに適用されるスタイル */
-.flash.notice {
-    background-color: lightblue;
-}
-
-  /* alert のみに適用されるスタイル */
-.flash.alert {
-    background-color: orangered;
-}
 
 /* sidebar */
 
