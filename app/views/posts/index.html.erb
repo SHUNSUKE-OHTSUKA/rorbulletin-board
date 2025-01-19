@@ -5,19 +5,21 @@
 </div>
 
 <% if @posts.present? %>
-    <ul>
-        <% @posts.each do |post| %>
-        <li>
-            <h2><%= post.title %></h2>
-            <p><%= post.content %></p>
-            <span><%= post.created_at %></span>
-            <div class="button-container">
-                <%= link_to "編集", edit_post_path(post), class: "edit-button" %>
-                <%= button_to "削除", post, method: :delete,class: "delete-button" %>
-            </div>
-        </li>
-        <% end %>
-    </ul>
+    <div class="post-container">
+        <ul>
+            <% @posts.each do |post| %>
+            <li>
+                <h2><%= post.title %></h2>
+                <p><%= post.content %></p>
+                <span><%= post.created_at %></span>
+                <div class="button-container">
+                    <%= link_to "編集", edit_post_path(post), class: "edit-button" %>
+                    <%= button_to "削除", post, method: :delete,class: "delete-button" %>
+                </div>
+            </li>
+            <% end %>
+        </ul>
+    </div>
 <% else %>
     <p>投稿がありません</p>
 <% end %>

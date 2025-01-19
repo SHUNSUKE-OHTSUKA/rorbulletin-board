@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "sessions/new"
+  get "users/new"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,7 +13,18 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  
+  # ユーザ管理機能
+  get "signup", to: "users#new"
+
+  # ログイン機能
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 
   # localhost:3000/posts
   resources :posts, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
+
+  # localhost:3000/users
+  resources :users
 end

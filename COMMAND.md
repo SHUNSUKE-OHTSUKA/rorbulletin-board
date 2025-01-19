@@ -45,6 +45,9 @@ docker compose exec web rails db:migrate
 ### ユーザ管理機能の追加
 
 ```
+# controllerの作成
+docker compose exec web rails generate controller Users new
+
 # modelの作成
 docker compose exec web rails generate model User name:string email:string
 docker compose exec web rails generate migration add_index_to_users_email

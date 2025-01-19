@@ -1,0 +1,25 @@
+/* エラーメッセージ全体のコンテナ */
+#error_explanation {
+    max-width: 600px;
+    margin: 20px auto; /* 中央揃え */
+}
+
+/* アラートメッセージ（エラーヘッダー部分） */
+#error_explanation .alert {
+    background-color: #f8d7da; /* 薄い赤 */
+    color: #721c24; /* 濃い赤の文字色 */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* エラーメッセージのリスト */
+#error_explanation ul {
+    padding-left: 50px; /* リストのインデント */
+}
+
+/* エラーメッセージリストの各項目 */
+#error_explanation li {
+    font-weight: bold; /* 太字 */
+    list-style-type: disc; /* 箇条書きスタイル */
+    color: red;
+}
