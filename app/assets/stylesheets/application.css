@@ -1,3 +1,6 @@
+@import "flash";
+@import "error_messages";
+
 /* 解説用にコメントを追加 
 全体のスタイル: ボディには背景色とフォントファミリーを指定し、ページ全体を整えています。
 フォーム（.form-container）: 最大幅を600pxにし、中央揃え、内部にパディングを加えてフォームを綺麗に配置。
@@ -91,19 +94,20 @@ h1 {
 }
 
 /* 投稿リスト */
-ul {
-    list-style-type: none; /* 項目の前の点を消す */
-    padding: 0; /* 左右の余白を削除 */
-    margin: 0 auto; /* 左右の余白を削除して中央揃え */
-    width: 90%; /* 幅を80%に設定 */
-}
-
-li {
-    background-color: #fff;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.post-container {
+    ul {
+        list-style-type: none; /* 項目の前の点を消す */
+        padding: 0; /* 左右の余白を削除 */
+        margin: 0 auto; /* 左右の余白を削除して中央揃え */
+        width: 90%; /* 幅を80%に設定 */
+    }
+    li {
+        background-color: #fff;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 }
 
 h2 {
@@ -168,21 +172,55 @@ span {
     background-color: #2ecc71;
 }
 
-/* フラッシュメッセージ */
-.flash {
-    color: $white; /* $white は SCSS 変数 */
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
+
+/* sidebar */
+
+aside {
+    section.user_info {
+        margin-top: 20px;
+    }
+    section {
+        padding: 10px 0;
+        margin-top: 20px;
+        &:first-child {
+            border: 0;
+            padding-top: 0;
+        }
+        span {
+            display: block;
+            margin-bottom: 3px;
+            line-height: 1;
+        }
+        h1 {
+            font-size: 1.4em;
+            text-align: left;
+            letter-spacing: -1px;
+            margin-bottom: 3px;
+            margin-top: 0px;
+        }
+    }
 }
 
-  /* notice のみに適用されるスタイル */
-.flash.notice {
-    background-color: lightblue;
+.gravatar {
+    float: left;
+    margin-right: 10px;
 }
 
-  /* alert のみに適用されるスタイル */
-.flash.alert {
-    background-color: orangered;
+.gravatar_edit {
+    margin-top: 15px;
 }
+
+/* #error_explanation {
+    color: red;
+    ul {
+        color: red;
+        margin: 0 0 30px 0;
+    }
+}
+
+.field_with_errors {
+    @extend .has-error;
+    .form-control {
+        color: $state-danger-text;
+    }
+} */
