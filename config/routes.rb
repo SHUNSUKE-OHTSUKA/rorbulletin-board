@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "posts#index"
   
   # ユーザ管理機能
   get "signup", to: "users#new"
@@ -21,10 +21,11 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  get "signup"  => "users#new"
 
   # localhost:3000/posts
   resources :posts, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
 
   # localhost:3000/users
-  resources :users
+  resources :users, only: [ :new, :create, :show ]
 end

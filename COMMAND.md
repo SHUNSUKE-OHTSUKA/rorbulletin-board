@@ -27,6 +27,7 @@ docker compose down
 
 ```
 docker compose exec web bundle exec rake db:create
+docker compose exec web rails db:migrate
 ```
 
 ## Rails操作
@@ -55,11 +56,23 @@ docker compose exec web rails generate migration add_password_digest_to_users pa
 docker compose exec web rails db:migrate
 ```
 
+### ログイン機能の追加
+
+```
+# Sessions controllerの作成
+docker compose exec web rails generate controller Sessions new
+docker compose exec web rails generate integration_test users_login
+```
+
 ### テスト
 
 Railsに標準で組み込まれてるテストフレームワークを使います
 
 ```
-# modelのテスト(./test/modelsを実行)
+# 単体テスト
+## modelのテスト(./test/modelsを実行)
 docker compose exec web rails test:models
+
+# 結合テスト
+docker compose exec web rails test:integration
 ```
