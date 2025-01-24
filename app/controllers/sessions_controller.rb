@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user
     else
-      flash.now[:alert] = 'mailアドレスまたはパスワードが間違っています'
-      render 'new', status: :unprocessable_entity
+      flash.now[:alert] = "mailアドレスまたはパスワードが間違っています"
+      render "new", status: :unprocessable_entity
     end
   end
 
