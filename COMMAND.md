@@ -64,6 +64,14 @@ docker compose exec web rails generate controller Sessions new
 docker compose exec web rails generate integration_test users_login
 ```
 
+### ログイン機能の追加(Remember me 機能)
+
+```
+docker compose exec web rails generate migration add_remember_digest_to_users remember_digest:string
+
+docker compose exec web rails db:migrate
+```
+
 ### テスト
 
 Railsに標準で組み込まれてるテストフレームワークを使います

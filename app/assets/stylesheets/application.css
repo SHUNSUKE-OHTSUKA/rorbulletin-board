@@ -36,43 +36,84 @@ h1 {
     margin-top: 40px;
 }
 
-/* form-containerに対するスタイル */
-.form-container {
-    max-width: 600px; /* 最大幅 */
-    margin: 20px auto; /* 中央揃え */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影 */
+/* ログイン */
+:root {
+    --form-bg-color: #fff;
+    --form-border-radius: 8px;
+    --form-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --input-border-color: #ccc;
+    --input-border-focus-color: #4A90E2;
+    --text-color: #555;
+    --font-size: 16px;
+    --input-padding: 12px;
 }
 
-/* 各入力欄 */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--form-bg-color);
+    border-radius: var(--form-border-radius);
+    box-shadow: var(--form-shadow);
+}
+
 .form-input {
-    margin-bottom: 20px; /* 下の余白 */
+    margin-bottom: 20px;
 }
 
 .form-input label {
-    display: block; /* ラベルをブロック要素にして、入力欄の上に表示 */
     margin-bottom: 8px;
-    font-size: 16px;
-    color: #555;
+    font-size: var(--font-size);
+    color: var(--text-color);
+    display: block; /* ラベルをブロック要素に */
 }
 
-.form-input input,
-.form-input textarea {
-    width: 80%; /* 入力欄を横幅いっぱいに */
-    padding: 12px; /* 内側の余白 */
-    border: 1px solid #ccc; /* 薄い灰色の枠線 */
-    border-radius: 4px; /* 角を丸くする */
-    font-size: 16px;
+.form-control {
+    display: block; /* 入力欄の上にラベルを表示 */
+    width: 80%;
+    padding: var(--input-padding);
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    font-size: var(--font-size);
     color: #333;
+    transition: border-color 0.3s ease; /* スムーズなフォーカス効果 */
 }
 
-.form-input input:focus,
-.form-input textarea:focus {
-    border-color: #4A90E2; /* フォーカス時の枠線色 */
-    outline: none; /* フォーカス時のアウトラインを削除 */
+.form-control:focus {
+    border-color: var(--input-border-focus-color);
+    outline: none;
 }
+
+.checkbox {
+    display: flex;
+    align-items: center; /* 縦方向の揃え */
+    margin: -10px 0 10px;
+}
+
+.checkbox input[type="checkbox"] {
+    margin: 0; /* 不要な余白を削除 */
+    width: auto;
+    height: auto;
+    vertical-align: middle; /* チェックボックスを中央揃え */
+}
+
+.checkbox span {
+    margin-left: 10px; /* チェックボックスとテキストの間隔を調整 */
+    font-size: 14px;
+    line-height: 1.5; /* テキストの高さを適切に設定 */
+}
+
+#session_remember_me {
+    width: auto;
+    margin-left: 0;
+}
+
+.button-container {
+    text-align: center; /* ボタンを中央揃え */
+}
+
+
+
 
 /* ボタンコンテナ */
 .button-container {
@@ -120,18 +161,18 @@ h1 {
     }
 }
 
-h2 {
+.post-container h2 {
     font-size: 24px;
     margin: 0;
     color: #333;
 }
 
-p {
+.post-container p {
     font-size: 16px;
     color: #555;
 }
 
-span {
+.post-container span {
     display: block;
     margin-top: 10px;
     font-size: 14px;
