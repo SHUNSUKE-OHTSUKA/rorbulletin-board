@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class SiteLayoutTest < ActionDispatch::IntegrationTest
   def setup
@@ -7,7 +7,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
 
   test "layout links" do
     get root_path
-    assert_template 'posts/index'
+    assert_template "posts/index"
     assert_select "a[href=?]", root_path
     assert_select "a[href=?]", users_path, count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
