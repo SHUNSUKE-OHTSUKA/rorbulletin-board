@@ -56,6 +56,20 @@ docker compose exec web rails generate migration add_password_digest_to_users pa
 docker compose exec web rails db:migrate
 ```
 
+### ユーザ管理機能の追加(Update)
+
+```
+docker compose exec web rails generate integration_test users_edit
+```
+
+### ユーザ管理機能の追加(Delete)
+
+```
+# modelへカラム追加
+docker compose exec web rails generate migration add_admin_to_users admin:boolean
+docker compose exec web rails db:migrate
+```
+
 ### ログイン機能の追加
 
 ```

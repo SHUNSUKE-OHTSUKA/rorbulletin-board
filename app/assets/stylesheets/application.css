@@ -1,16 +1,6 @@
 @import "flash";
 @import "error_messages";
 
-/* 解説用にコメントを追加 
-全体のスタイル: ボディには背景色とフォントファミリーを指定し、ページ全体を整えています。
-フォーム（.form-container）: 最大幅を600pxにし、中央揃え、内部にパディングを加えてフォームを綺麗に配置。
-入力欄（.form-input）: 入力欄（input、textarea）に適切なパディングと枠線を指定。フォーカス時に色が変わるエフェクトも追加。
-ボタン（.button-container）: ボタンのデザイン、ホバーエフェクト、無効時のスタイルも含まれています。
-投稿リスト（ul、li）: 投稿のリストを整えて、投稿の各項目に影をつけて視覚的に分けています。
-編集・削除ボタン: 編集と削除のボタンに色をつけ、ホバー時に色が変わるようにしています。
-リンクボタン（.link-button）: 新しい投稿のリンクボタンには特定のスタイル（色やホバーエフェクト）を追加。
-*/
-
 /* 全体のスタイル */
 body {
     font-family: 'Arial', sans-serif;
@@ -108,13 +98,6 @@ h1 {
     margin-left: 0;
 }
 
-.button-container {
-    text-align: center; /* ボタンを中央揃え */
-}
-
-
-
-
 /* ボタンコンテナ */
 .button-container {
     display: flex; /* 横並びにする */
@@ -188,22 +171,22 @@ h1 {
     text-decoration: none;
 }
 
-.edit-button {
+.button-container .edit-button {
     background-color: #4A90E2;
     color: #fff;
     margin-right: 10px;
 }
 
-.edit-button:hover {
+.button-container .edit-button:hover {
     background-color: #357ABD;
 }
 
-.delete-button {
+.button-container .delete-button {
     background-color: #e74c3c;
     color: #fff;
 }
 
-.delete-button:hover {
+.button-container .delete-button:hover {
     background-color: #c0392b;
 }
 
@@ -259,4 +242,14 @@ aside {
 
 .gravatar_edit {
     margin-top: 15px;
+}
+
+.users {
+    list-style: none;
+    margin: 0;
+    li {
+        overflow: auto;
+        padding: 10px 0;
+        border-bottom: 1px solid $gray-lighter;
+    }
 }
