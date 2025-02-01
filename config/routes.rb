@@ -15,17 +15,17 @@ Rails.application.routes.draw do
   root "posts#index"
 
   # ユーザ管理機能
-  get "signup", to: "users#new"
+  get "/signup", to: "users#new"
+  get "/users", to: "users#index"
 
   # ログイン機能
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  get "signup"  => "users#new"
 
   # localhost:3000/posts
   resources :posts, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
 
   # localhost:3000/users
-  resources :users, only: [ :new, :create, :show ]
+  resources :users, only: [ :show, :new, :create, :edit, :update, :destroy ]
 end

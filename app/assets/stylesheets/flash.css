@@ -1,18 +1,18 @@
 /* フラッシュメッセージ */
 .flash {
-    color: $white; /* $white は SCSS 変数 */
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
+  max-width: 90%; 
+  margin: 5px auto;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
 }
 
   /* notice のみに適用されるスタイル */
 .flash.notice {
-    background-color: lightblue;
+  background-color: lightgreen;
 }
 
   /* alert のみに適用されるスタイル */
 .flash.alert {
-    background-color: orangered;
+  background-color: #f8d7da;
 }
