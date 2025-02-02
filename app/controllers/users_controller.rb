@@ -18,8 +18,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      redirect_to @user, notice: "登録が完了しました。"
+      # log_in @user
+      # redirect_to @user, notice: "登録が完了しました。"
+      UserMailer.account_activation(@user).deliver_now
+      redirect_to root_url, notice: "メールを確認してアカウントを有効化してください。"
     else
       render :new, status: :unprocessable_entity
     end
