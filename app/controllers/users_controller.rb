@@ -5,10 +5,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
   end
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 10)
+    @users = User.where(activated: true).paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -18,8 +19,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      redirect_to @user, notice: "登録が完了しました。"
+      @user.send_activation_email
+      redirect_to root_url, notice: "メールを確認してアカウントを有効化してください。"
     else
       render :new, status: :unprocessable_entity
     end

@@ -27,7 +27,8 @@ docker compose down
 
 ```
 docker compose exec web bundle exec rake db:create
-docker compose exec web rails db:migrate
+docker compose exec web rails db:migrate:reset
+docker compose exec web rails db:seed
 ```
 
 ## Rails操作
@@ -84,6 +85,16 @@ docker compose exec web rails generate integration_test users_login
 docker compose exec web rails generate migration add_remember_digest_to_users remember_digest:string
 
 docker compose exec web rails db:migrate
+```
+### アカウントの有効化
+
+```
+docker compose exec web rails generate controller AccountActivations
+docker compose exec web rails generate migration add_activation_to_users activation_digest:string activated:boolean activated_at:datetime
+docker compose exec web rails db:migrate
+
+docker compose exec web rails generate mailer UserMailer account_activation password_reset
+docker compose exec web rails test:mailers
 ```
 
 ### テスト

@@ -28,4 +28,7 @@ Rails.application.routes.draw do
 
   # localhost:3000/users
   resources :users, only: [ :show, :new, :create, :edit, :update, :destroy ]
+
+  # localhost:3000/account_activations
+  resources :account_activations, only: [ :edit ]
 end
