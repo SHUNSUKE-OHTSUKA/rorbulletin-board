@@ -1,5 +1,7 @@
 <h1>新しい投稿</h1>
 
+<%= render 'shared/error_messages', object: @post %>
+
 <%= form_with model: @post, class: "form-container" do |form| %>
     <div class="form-input">
         <%= form.label :title %> <%= form.text_field :title, class: 'form-control'%>

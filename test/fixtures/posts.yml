@@ -7,3 +7,9 @@ one:
 two:
   title: MyString
   content: MyString
+
+<% 15.times do |n| %>
+post_<%= n %>:
+  title:  <%= "Post #{n}" %>
+  content: <%= "Content #{n}" %>
+<% end %>
