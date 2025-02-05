@@ -6,6 +6,7 @@
 
 <% if @posts.present? %>
     <div class="post-container">
+        <%= will_paginate %>
         <ul>
             <% @posts.each do |post| %>
             <li>
@@ -19,6 +20,7 @@
             </li>
             <% end %>
         </ul>
+        <%= will_paginate %>
     </div>
 <% else %>
     <p>投稿がありません</p>
