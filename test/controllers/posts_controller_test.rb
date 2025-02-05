@@ -16,7 +16,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create post when not logged in" do
-    assert_no_difference 'Post.count' do
+    assert_no_difference "Post.count" do
       post posts_path, params: { post: { title: "test", content: "test" } }
     end
     assert_redirected_to login_path
@@ -33,7 +33,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy post when not logged in" do
-    assert_no_difference 'Post.count' do
+    assert_no_difference "Post.count" do
       delete post_path(@post)
     end
     assert_redirected_to login_url

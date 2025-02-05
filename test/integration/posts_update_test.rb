@@ -11,7 +11,7 @@ class PostsUpdateTest < ActionDispatch::IntegrationTest
     get edit_post_path(@post)
     patch post_path(@post), params: { post: { title: "test", content: "test" } }
     follow_redirect!
-    assert_template 'posts/index'
+    assert_template "posts/index"
     assert_not flash.empty?
   end
 
@@ -19,7 +19,7 @@ class PostsUpdateTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get edit_post_path(@post)
     patch post_path(@post), params: { post: { title: "", content: "" } }
-    assert_template 'posts/edit'
+    assert_template "posts/edit"
     assert_not flash.empty?
   end
 end
