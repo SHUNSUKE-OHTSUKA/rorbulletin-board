@@ -17,5 +17,8 @@ services:
       - .:/myapp
     ports:
       - "3000:3000"
+    environment:
+      DB_USERNAME: root
+      DB_PASSWORD: root
     depends_on:
       - db
