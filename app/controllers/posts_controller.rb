@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     before_action :logged_in_user, only: [ :new, :create, :edit, :update, :destroy ]
+    before_action :ensure_correct_user, only: [ :edit, :update, :destroy ]
 
     def index
         @posts = Post.paginate(page: params[:page], per_page: 10)
@@ -44,6 +45,13 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:title, :content)
+        params.require(:post).permit(:title, :content).merge(user_id: current_user.id)
+    end
+
+    def ensure_correct_user
+        @post = Post.find(params[:id])
+        if @post.user_id != current_user.id && !current_user.admin?
+            redirect_to posts_path, alert: "権限がありません"
+        end
     end
 end

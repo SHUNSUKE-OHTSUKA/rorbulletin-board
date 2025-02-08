@@ -9,6 +9,7 @@ class User < ApplicationRecord
         uniqueness: { case_sensitive: false }
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+    has_many :posts, dependent: :destroy
 
     # 文字列のハッシュ値を返す
     def User.digest(string)
@@ -48,6 +49,11 @@ class User < ApplicationRecord
     # 有効化用のメールを送信
     def send_activation_email
         UserMailer.account_activation(self).deliver_now
+    end
+
+    # 管理ユーザーかどうかを判定
+    def admin?
+        self.admin
     end
 
     private
