@@ -19,6 +19,11 @@ module ActiveSupport
     def log_in_as(user)
       session[:user_id] = user.id
     end
+
+    # ページ１の画面上の投稿数を返す
+    def first_page_posts_count
+      Post.paginate(page: 1, per_page: 10).length
+    end
   end
 
   class ActionDispatch::IntegrationTest
