@@ -97,6 +97,13 @@ docker compose exec web rails generate mailer UserMailer account_activation pass
 docker compose exec web rails test:mailers
 ```
 
+### 投稿とユーザの紐づけ
+
+```
+docker compose exec web rails generate migration add_user_id_to_posts
+docker compose exec web rails db:migrate
+```
+
 ### テスト
 
 Railsに標準で組み込まれてるテストフレームワークを使います

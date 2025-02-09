@@ -3,13 +3,16 @@
 one:
   title: MyString
   content: MyString
+  user: michael
 
 two:
   title: MyString
   content: MyString
+  user: michael
 
 <% 15.times do |n| %>
 post_<%= n %>:
   title:  <%= "Post #{n}" %>
   content: <%= "Content #{n}" %>
+  user: michael
 <% end %>

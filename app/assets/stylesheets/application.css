@@ -162,6 +162,29 @@ h1 {
     color: #888;
 }
 
+.post-user-info {
+    display: flex;          /* 横並びにする */
+    align-items: center;    /* 垂直方向の中央揃え */
+    margin-bottom: 15px;    /* 下部に余白を追加 */
+}
+
+.post-user-info img.gravatar {
+    width: 30px;           /* アイコンの幅を90pxに設定 */
+    height: 30px;          /* アイコンの高さを90pxに設定 */
+    border-radius: 15px;   /* 円形にする場合（任意） */
+    margin-right: 15px;    /* アイコンとユーザー名の間の余白 */
+}
+
+.post-user-info a {
+    text-decoration: none; /* リンクの下線を消す（任意） */
+    color: #333;          /* リンクの色（任意） */
+    font-size: 16px;      /* フォントサイズ（任意） */
+}
+
+.post-user-info a:hover {
+    color: #007bff;       /* ホバー時のリンクの色（任意） */
+}
+
 /* 編集・削除ボタン */
 .button-container a,
 .button-container button {
